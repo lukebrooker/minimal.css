@@ -4,6 +4,24 @@ An opinionated, inheritance focused alternative to CSS resets
 
 [**Demo** (lukebrooker.com/minimal.css)](http://lukebrooker.com/minimal.css)
 
+## How to use
+
+```
+npm i minimal.css -S
+```
+
+### Include in JS
+
+```
+import 'minimal.css'
+```
+
+### Include in CSS (post-css needed)
+
+```
+@import 'minimal.css';
+```
+
 ## Why Use This?
 
 When creating web applications with a component based approach, it's rare that you want to keep default browser styles on many elements.
