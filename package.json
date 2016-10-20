@@ -9,6 +9,7 @@
     "minimal.css"
   ],
   "scripts": {
+    "deploy": "gh-pages -d /",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/lukebrooker/minimal.css/issues"
   },
-  "homepage": "https://github.com/lukebrooker/minimal.css#readme"
+  "homepage": "https://github.com/lukebrooker/minimal.css#readme",
+  "devDependencies": {
+    "gh-pages": "^0.11.0"
+  }
 }
