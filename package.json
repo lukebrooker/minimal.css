@@ -1,0 +1,31 @@
+{
+  "name": "minimal-css",
+  "version": "1.0.0",
+  "description": "An opinionated, inheritance focused alternative to CSS resets",
+  "main": "minimal.css",
+  "style": "minimal.css",
+  "files": [
+    "LICENSE.md",
+    "minimal.css"
+  ],
+  "scripts": {
+    "deploy": "gh-pages -d /",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukebrooker/minimal.css.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Luke Brooker <mail@lukebrooker.com> (http://lukebrooker.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukebrooker/minimal.css/issues"
+  },
+  "homepage": "https://github.com/lukebrooker/minimal.css#readme",
+  "devDependencies": {
+    "gh-pages": "^0.11.0"
+  }
+}

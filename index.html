@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en" class="dark bg-light ovxh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minimal.css</title>
+    <link rel="stylesheet" href="minimal.css" id="resetStyles">
+  </head>
+  <body class="m2">
+<style id="customStyle">:root {
+
+}
+
+.code {
+  font-family: Consolas, monaco, monospace;
+}
+
+.light {
+  color: #a3f5c0;
+}
+
+.bg-light {
+  background-color: #a3f5c0;
+}
+
+.dark {
+  color: #5d1341;
+}
+
+.bg-dark {
+  background-color: #5d1341;
+}
+
+.db {
+  display: block;
+}
+
+.dib {
+  display: inline-block;
+}
+
+.ms1 {
+  font-size: 1.333rem;
+}
+
+.ms2 {
+  font-size: 1.777rem;
+}
+
+.ms3 {
+  font-size: 2.369rem;
+}
+
+.ms6 {
+  font-size: 5.61rem;
+}
+
+.bg-current-faded,
+.bg-current,
+.bg-current-faded > *,
+.bg-current > * {
+  position: relative;
+}
+
+.bg-current:before,
+.bg-current-faded:before,
+.bg-current-faded-on-focus:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.bg-current:before,
+.bg-current-faded:before,
+.bg-current-faded-on-focus:before {
+  background-color: currentColor;
+}
+
+.bg-current-faded:before {
+  opacity: 0.1;
+}
+
+.outline-on-focus:focus {
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.underline-on-hover:hover,
+.underline-on-hover:focus {
+  border-bottom: 2px solid;
+}
+
+.fade-on-hover:hover,
+.fade-on-hover:focus {
+  opacity: 0.7;
+}
+
+.bd2 {
+  border-width: 0.125rem;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.faded {
+  opacity: .7;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.measure {
+  max-width: 30em;
+}
+
+.measure-wide {
+  max-width: 40em;
+}
+
+.w100p {
+  width: 100%;
+}
+
+.h100p {
+  height: 100%;
+}
+
+.h50vh {
+  height: 50vh;
+}
+
+.wsnw {
+  white-space: nowrap;
+}
+
+.ova {
+  overflow: auto;
+}
+
+.ovxh {
+  overflow-x: hidden;
+}
+
+.lh1h {
+  line-height: 1.5;
+}
+
+.mxn2 {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+.mth {
+  margin-top: .5rem;
+}
+
+.mbh {
+  margin-bottom: .5rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.my1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.m2 {
+  margin: 2rem;
+}
+
+.my2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my3 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.pq {
+  padding: .25rem;
+}
+
+.p1 {
+  padding: 1rem;
+}
+
+.pl1 {
+  padding-left: 1rem;
+}
+
+.py1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px2 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.list {
+  list-style: disc;
+}
+
+.ost {
+  -webkit-overflow-scrolling: touch;
+}
+
+.controlCustomStyles {
+  min-height: 10rem;
+  height: 50vh;
+  width: 100%;
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+}
+</style>
+    <h1 class="ms3 bold">minimal.css</h1>
+    <hr class="mb1 bd2">
+    <p class="measure lh1h ms1">An opinionated (currently naïve), inheritance focused alternative to CSS resets</p>
+    <pre class="bg-current-faded p1 my1 measure"><code class="code">npm i minimal.css -S</code></pre>
+    <p><a href="https://github.com/lukebrooker/minimal.css" class="bold underline-on-hover">View on Github</a></p>
+    <div class="my3">
+      <h2 class="bold mb1 ms3">Goals</h2>
+      <ul class="lh1h list measure">
+        <li>A predictable base for elements in application development</li>
+        <li>Allow for easy semantic use of HTML tags without worrying about reseting styling</li>
+        <li>Components require as little additional CSS as possible (Especially useful when taking an "atomic" approach to CSS)</li>
+        <li>Components are adaptive to their context when required (inheritance)</li>
+      </ul>
+    </div>
+    <div class="controls">
+      <div class="my3">
+        <h2 class="bold ms3">Compare Resets</h2>
+        <p class="mth faded">Note: This will live update the reset file used on this page.</p>
+        <ul id="controlResetStyles" class="controlResetStyles mxn2 py1 px2 ost ova wsnw">
+          <li class="dib"><button data-reset="minimal" class="resetButton pq fade-on-hover outline-on-focus bg-current"><span class="button-text light">minimal.css</span></button></li>
+          <li class="dib"><button data-reset="sanitize" class="resetButton pq fade-on-hover outline-on-focus"><span class="button-text">sanitize.css</span></button></li>
+          <li class="dib"><button data-reset="normalize" class="resetButton pq fade-on-hover outline-on-focus"><span class="button-text">normalize.css</span></button></li>
+          <li class="dib"><button data-reset="meyerReset" class="resetButton pq fade-on-hover outline-on-focus"><span class="button-text">Meyer Reset</span></button></li>
+          <li class="dib"><button data-reset="cssWipe" class="resetButton pq fade-on-hover outline-on-focus"><span class="button-text">CSS Wipe</span></button></li>
+        </ul>
+      </div>
+      <div class="my3">
+        <label for="controlCustomStyles" class="bold ms3">Custom Styles</label>
+        <p class="mth faded">Hint: Try changing the `.dark` color</p>
+        <div class="bg-current-faded my1 measure-wide">
+          <textarea placeholder="Add custom styles here…" id="controlCustomStyles" class="controlCustomStyles db pq outline-on-focus code measure-wide lh1h"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="example">
+      <main role="main">
+        <h2 class="bold ms3">Example Elements</h2>
+        <section class="my2" id="text">
+          <header><h1 class="ms2 bold mbh">Text</h1></header>
+          <article id="text__headings">
+            <header><h2 class="ms1 mbh mt1">Headings</h2></header>
+            <div>
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+            </div>
+          </article>
+          <article id="text__paragraphs">
+            <header><h2 class="ms1 mbh mt1">Paragraphs</h2></header>
+            <div>
+              <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
+          </article>
+          <article id="text__blockquotes">
+            <header><h2 class="ms1 mbh mt1">Blockquotes</h2></header>
+            <div>
+              <blockquote>
+                <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+                <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+                <cite><a href="#!">Said no one, ever.</a></cite>
+              </blockquote>
+            </div>
+          </article>
+          <article id="text__lists">
+            <header><h2 class="ms1 mbh mt1">Lists</h2></header>
+            <div>
+              <h3 class="bold mbh mt1">Definition list</h3>
+              <dl>
+                <dt>Definition List Title</dt>
+                <dd>This is a definition list division.</dd>
+              </dl>
+              <h3 class="bold mbh mt1">Ordered List</h3>
+              <ol>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ol>
+              <h3 class="bold mbh mt1">Unordered List</h3>
+              <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ul>
+            </div>
+          </article>
+          <article id="text__hr">
+            <header><h2 class="ms1 mbh mt1">Horizontal rules</h2></header>
+            <div>
+              <hr>
+            </div>
+          </article>
+          <article id="text__tables">
+            <header><h2 class="ms1 mbh mt1">Tabular data</h2></header>
+            <table>
+              <caption>Table Caption</caption>
+              <thead>
+                <tr>
+                  <th>Table Heading 1</th>
+                  <th>Table Heading 2</th>
+                  <th>Table Heading 3</th>
+                  <th>Table Heading 4</th>
+                  <th>Table Heading 5</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Table Footer 1</th>
+                  <th>Table Footer 2</th>
+                  <th>Table Footer 3</th>
+                  <th>Table Footer 4</th>
+                  <th>Table Footer 5</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+                <tr>
+                  <td>Table Cell 1</td>
+                  <td>Table Cell 2</td>
+                  <td>Table Cell 3</td>
+                  <td>Table Cell 4</td>
+                  <td>Table Cell 5</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+          <article id="text__code">
+            <header><h2 class="ms1 mbh mt1">Code</h2></header>
+            <div>
+              <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+              <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+              <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+              <h2 class="ms1 mbh mt1">Pre-formatted text</h2>
+              <pre>P R E F O R M A T T E D T E X T
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  @ A B C D E F G H I J K L M N O
+  P Q R S T U V W X Y Z [ \ ] ^ _
+  ` a b c d e f g h i j k l m n o
+  p q r s t u v w x y z { | } ~ </pre>
+            </div>
+          </article>
+          <article id="text__inline">
+            <header><h2 class="ms1 mbh mt1">Inline elements</h2></header>
+            <div>
+              <p><a href="#!">This is a text link</a>.</p>
+              <p><strong>Strong is used to indicate strong importance.</strong></p>
+              <p><em>This text has added emphasis.</em></p>
+              <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+              <p>The <i>i element</i> is text that is offset from the normal text.</p>
+              <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+              <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+              <p><s>This text has a strikethrough</s>.</p>
+              <p>Superscript<sup>®</sup>.</p>
+              <p>Subscript for things like H<sub>2</sub>O.</p>
+              <p><small>This small text is small for for fine print, etc.</small></p>
+              <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+              <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+              <p><cite>This is a citation.</cite></p>
+              <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+              <p>The <mark>mark element</mark> indicates a highlight.</p>
+              <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+              <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+            </div>
+          </article>
+        </section>
+
+        <section class="my2" id="embedded">
+          <header><h1 class="ms2 bold mbh">Embedded content</h1></header>
+          <article id="embedded__images">
+            <header><h2 class="ms1 mbh mt1">Images</h2></header>
+            <div>
+              <h3 class="bold mbh mt1">No <code>&lt;figure&gt;</code> element</h3>
+              <p><img src=" http://fillmurray.com/480/480" alt="Fill Murray"></p>
+              <h3 class="bold mbh mt1">Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h3>
+              <figure><img src=" http://fillmurray.com/420/420" alt="Because Fill Murray"></figure>
+              <h3 class="bold mbh mt1">Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h3>
+              <figure>
+                <img src=" http://fillmurray.com/g/420/420" alt="Fill Murray all the time">
+                <figcaption>Here is a caption for this image.</figcaption>
+              </figure>
+            </div>
+          </article>
+          <article id="embedded__audio">
+            <header><h2 class="ms1 mbh mt1">Audio</h2></header>
+            <div><audio controls="">audio</audio></div>
+          </article>
+          <article id="embedded__video">
+            <header><h2 class="ms1 mbh mt1">Video</h2></header>
+            <div><video controls="">video</video></div>
+          </article>
+          <article id="embedded__canvas">
+            <header><h2 class="ms1 mbh mt1">Canvas</h2></header>
+            <div><canvas>canvas</canvas></div>
+          </article>
+          <article id="embedded__meter">
+            <header><h2 class="ms1 mbh mt1">Meter</h2></header>
+            <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+          </article>
+          <article id="embedded__progress">
+            <header><h2 class="ms1 mbh mt1">Progress</h2></header>
+            <div><progress>progress</progress></div>
+          </article>
+          <article id="embedded__svg">
+            <header><h2 class="ms1 mbh mt1">Inline SVG</h2></header>
+            <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+          </article>
+          <article id="embedded__iframe">
+            <header><h2 class="ms1 mbh mt1">IFrame</h2></header>
+            <div class="measure-wide h50vh ova"><iframe src="http://lukebrooker.com" class="w100p h100p"></iframe></div>
+          </article>
+        </section>
+        <section class="my2" id="forms">
+          <header><h1 class="ms2 bold mbh">Form elements</h1></header>
+          <form novalidate>
+            <h2 class="ms1 mbh mt1">Unstyled Fielset and Legend</h2>
+            <fieldset id="forms__fieldset">
+              <legend>Legend (I'm in a fieldset!)</legend>
+            </fieldset>
+            <fieldset class="mt1" id="forms__input">
+              <legend class="ms1 mbh">Input fields</legend>
+              <p>
+                <label for="input__text">Text Input</label>
+                <input id="input__text" type="text" placeholder="Text Input">
+              </p>
+              <p>
+                <label for="input__password">Password</label>
+                <input id="input__password" type="password" placeholder="Type your Password">
+              </p>
+              <p>
+                <label for="input__webaddress">Web Address</label>
+                <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+              </p>
+              <p>
+                <label for="input__emailaddress">Email Address</label>
+                <input id="input__emailaddress" type="email" placeholder="name@email.com">
+              </p>
+              <p>
+                <label for="input__phone">Phone Number</label>
+                <input id="input__phone" type="tel" placeholder="0400000000">
+              </p>
+              <p>
+                <label for="input__search">Search</label>
+                <input id="input__search" type="search" placeholder="Enter Search Term">
+              </p>
+              <p>
+                <label for="input__text2">Number Input</label>
+                <input id="input__text2" type="number" step="any" placeholder="Enter a Number" inputmode="numeric" pattern="[0-9]*">
+              </p>
+            </fieldset>
+            <fieldset class="mt1" id="forms__select">
+              <legend class="ms1 mbh">Select menus</legend>
+              <p>
+                <label for="select">Select</label>
+                <select id="select">
+                  <optgroup label="Option Group">
+                    <option>Option One</option>
+                    <option>Option Two</option>
+                    <option>Option Three</option>
+                  </optgroup>
+                </select>
+              </p>
+            </fieldset>
+            <fieldset class="mt1" id="forms__checkbox">
+              <legend class="ms1 mbh">Checkboxes</legend>
+              <ul>
+                <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
+                <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
+                <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
+              </ul>
+            </fieldset>
+            <fieldset class="mt1" id="forms__radio">
+              <legend class="ms1 mbh">Radio buttons</legend>
+              <ul>
+                <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
+                <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
+                <li><label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label></li>
+              </ul>
+            </fieldset>
+            <fieldset class="mt1" id="forms__textareas">
+              <legend class="ms1 mbh">Textareas</legend>
+              <p>
+                <label for="textarea">Textarea</label>
+                <textarea id="textarea" placeholder="Enter your message here"></textarea>
+              </p>
+            </fieldset>
+            <fieldset class="mt1" id="forms__file">
+              <legend class="ms1 mbh">File Input</legend>
+              <p>
+                <label for="input__file">File Input</label>
+                <input id="input__file" type="file" placeholder="File Upload">
+              </p>
+            </fieldset>
+            <fieldset class="mt1" id="forms__html5">
+              <legend class="ms1 mbh">HTML5 inputs</legend>
+              <p>
+                <label for="ic">Color input</label>
+                <input type="color" id="ic" value="#000000">
+              </p>
+              <p>
+                <label for="in">Number input</label>
+                <input type="number" id="in" min="0" max="10" value="5" inputmode="numeric" pattern="[0-9]*">
+              </p>
+              <p>
+                <label for="ir">Range input</label>
+                <input type="range" id="ir" value="10">
+              </p>
+              <p>
+                <label for="idd">Date input</label>
+                <input type="date" id="idd" value="2016-01-01">
+              </p>
+              <p>
+                <label for="idm">Month input</label>
+                <input type="month" id="idm" value="2016-01">
+              </p>
+              <p>
+                <label for="idw">Week input</label>
+                <input type="week" id="idw" value="2016-W01">
+              </p>
+              <p>
+                <label for="itime">Time input</label>
+                <input type="time" id="itime">
+              </p>
+            </fieldset>
+            <fieldset class="mt1" id="forms__action">
+              <legend class="ms1 mbh">Action buttons</legend>
+              <p>
+                <input type="submit" value="<input type=submit>">
+                <input type="button" value="<input type=button>">
+                <input type="reset" value="<input type=reset>">
+                <input type="submit" value="<input disabled>" disabled>
+              </p>
+              <p>
+                <button type="submit">&lt;button type=submit&gt;</button>
+                <button type="button">&lt;button type=button&gt;</button>
+                <button type="reset">&lt;button type=reset&gt;</button>
+                <button type="button" disabled>&lt;button disabled&gt;</button>
+              </p>
+            </fieldset>
+          </form>
+        </section>
+      </main>
+      <footer role="contentinfo">
+        <hr class="mb1 bd2">
+        <p>Made with 🌩 by <a class="underline-on-hover" href="http://twitter.com/lukebrooker">Luke Brooker</a></p>
+      </footer>
+    </div>
+    <script>
+      var resetStyles = {
+        minimal: 'minimal.css',
+        sanitize: 'https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/4.1.0/sanitize.css',
+        normalize: 'https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css',
+        meyerReset: 'https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css',
+        cssWipe: 'https://cdn.rawgit.com/stackcss/css-wipe/master/dest/bundle.css'
+      }
+
+      var resetButtons = document.querySelectorAll('.resetButton')
+      resetButtons.forEach(function(resetButton) {
+        resetButton.addEventListener('click', function (e) {
+          resetButtons.forEach(function (resetButton) {
+            resetButton.classList.remove('bg-current')
+            resetButton.children[0].classList.remove('light')
+          })
+          this.classList.add('bg-current')
+          this.children[0].classList.add('light')
+          document.querySelector('#resetStyles')
+            .setAttribute('href', resetStyles[this.dataset.reset])
+        })
+      })
+
+      var customStyle = document.getElementById('customStyle')
+      var controlCustomStyles = document.getElementById('controlCustomStyles')
+      controlCustomStyles.value = customStyle.textContent
+      controlCustomStyles.addEventListener('input', function (e) {
+        customStyle.textContent = ''
+        customStyle.appendChild(document.createTextNode(e.target.value))
+      })
+    </script>
+  </body>
+</html>
