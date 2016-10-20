@@ -596,6 +596,7 @@
         <p>Made with 🌩 by <a class="underline-on-hover" href="https://twitter.com/lukebrooker">Luke Brooker</a></p>
       </footer>
     </div>
+    <script src="https://unpkg.com/cssbeautify@0.3.1/cssbeautify.js"></script>
     <script>
       var resetStyles = {
         minimal: 'minimal.css',
@@ -621,7 +622,10 @@
 
       var customStyle = document.getElementById('customStyle')
       var controlCustomStyles = document.getElementById('controlCustomStyles')
-      controlCustomStyles.value = customStyle.textContent
+      controlCustomStyles.value = cssbeautify(customStyle.textContent, {
+        indent: '  ',
+        autosemicolon: true
+      })
       controlCustomStyles.addEventListener('input', function (e) {
         customStyle.textContent = ''
         customStyle.appendChild(document.createTextNode(e.target.value))

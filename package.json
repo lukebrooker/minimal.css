@@ -1,5 +1,5 @@
 {
-  "name": "minimal-css",
+  "name": "minimal.css",
   "version": "1.0.0",
   "description": "An opinionated, inheritance focused alternative to CSS resets",
   "main": "minimal.css",
