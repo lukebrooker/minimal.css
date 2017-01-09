@@ -39,8 +39,7 @@
   vertical-align: inherit;
 }
 
-*:not(input),
-input:not([type=checkbox]):not([type=radio]),
+*,
 *:before,
 *:after {
   border: 0;
